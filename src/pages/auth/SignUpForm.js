@@ -40,6 +40,7 @@ const SignUpForm = () => {
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/signin");
+      console.log('Submitted')
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -52,7 +53,7 @@ const SignUpForm = () => {
           <h1 className={styles.Header}>sign up</h1>
 
           <Form onSubmit={handleSubmit}>
-            <Form.Group     >
+            <Form.Group controlId="username">
               <Form.Label className="d-none">username</Form.Label>
               <Form.Control
                 className={styles.Input}
